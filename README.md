@@ -2,6 +2,7 @@
 
 <!-- Captura de la app -->
 <!-- App link ➜ (link) -->
+<!-- enlace a repo en github -->
 
 ## 👀 What is this?
 
@@ -54,11 +55,11 @@ my-app
 * [react](https://www.npmjs.com/package/react) ⚛ 
 * [prop-types](https://www.npmjs.com/package/prop-types)
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+* [node-sass](https://www.npmjs.com/package/node-sass)
 
 I also used the following dependencies, included in Create React App 2.0. <br />
 In order to see or modify the dependencies in `package.json` you can `$ npm run eject`, which I did not as I liked the react configuration for this modules:
 * ESLint
-* Sass
 * Babel
 * Webpack
 * Jest
@@ -73,6 +74,8 @@ Babel plugins
 ## 💡 To Do
 
 ...
+<!-- alias para importar sin ../../ rutas absolutas! :), no relativas -->
+<!-- ver si eslint y optional-chaining están funcionando -->
 <!-- Tests -->
 
 ## 🔧 Production build
