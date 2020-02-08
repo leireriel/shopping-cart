@@ -1,12 +1,12 @@
-# Shopping cart 🛒🔥
+# Shopping cart 🛒
 
 <!-- Captura de la app -->
 <!-- App link ➜ (link) -->
 
 ## 👀 What is this?
 
-This is a ...
-Enjoy it! 🥳
+This is a ... <br />
+Enjoy it! 🔥
 
 ## 📅 What am I working on now
 
@@ -52,10 +52,19 @@ my-app
 ## 📦 Dependencies
 
 * [react](https://www.npmjs.com/package/react) ⚛ 
-* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 * [prop-types](https://www.npmjs.com/package/prop-types)
-* [eslint](https://www.npmjs.com/package/eslint)
-* [node-sass](https://www.npmjs.com/package/node-sass)
+* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+
+I also used the following dependencies, included in Create React App 2.0. <br />
+In order to see or modify the dependencies in `package.json` you can `$ npm run eject`, which I did not as I liked the react configuration for this modules:
+* ESLint
+* Sass
+* Babel
+* Webpack
+* Jest
+
+Babel plugins
+* [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
 
 ## 💪 Challenges
 
