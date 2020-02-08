@@ -67,7 +67,7 @@ In order to see or modify the dependencies in `package.json` you can `$ npm run 
 * Webpack
 * Jest
 
-Babel plugins
+Babel plugins:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
 
 ## 💪 Challenges
