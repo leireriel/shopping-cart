@@ -1,0 +1,12 @@
+{
+  "short_name": "Shopping Cart",
+  "name": "Shopping Cart App",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "200x200"
+    }
+  ],
+  "start_url": "."
+}

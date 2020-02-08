@@ -31,14 +31,14 @@ shopping-cart
 │   ├── index.html
 │   ├── manifest.json
 │   └── robots.txt
-└── src
+├── src
 │   ├── assets
 │   ├── components
 │   ├── constants
 │   ├── layouts
 │   ├── modals
 │   ├── routes
-│   ├── └── App
+│   │   └── App
 │   ├── services
 │   ├── styles
 │   ├── utils
@@ -50,7 +50,7 @@ shopping-cart
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
-├── README.md
+└── README.md
 ```
 
 ## 📦 Dependencies
