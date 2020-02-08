@@ -1,4 +1,4 @@
-# Shopping cart 🛒
+# Shopping Cart 🛒
 
 <!-- Captura de la app -->
 <!-- App link ➜ (link) -->
@@ -23,32 +23,35 @@ You need to have installed [Node.js](https://nodejs.org/), and then:
 
 ## ⛩️ Structure
 
-...
-
-<!--
-
-my-app
-├── README.md
+```
+shopping-cart
 ├── node_modules
-├── package.json
-├── .gitignore
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
 │   ├── manifest.json
 │   └── robots.txt
 └── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    └── serviceWorker.js
-
--->
+│   ├── assets
+│   ├── components
+│   ├── constants
+│   ├── layouts
+│   ├── modals
+│   ├── routes
+│   ├── └── App
+│   ├── services
+│   ├── styles
+│   ├── utils
+|   └── index.js
+├── tests
+│   ├── App.test.js
+|   └── setupTests.js
+├── .babelrc
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── README.md
+```
 
 ## 📦 Dependencies
 
