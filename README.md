@@ -1,8 +1,8 @@
 # Shopping Cart 🛒
 
 <!-- Captura de la app -->
-<!-- App link ➜ (link) -->
-<!-- enlace a repo en github -->
+<!-- [Enlace a la App online]() -->
+[Enlace al proyecto en GitHub](https://github.com/leireriel/shopping-cart)
 
 ## 👀 What is this?
 
