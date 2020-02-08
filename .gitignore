@@ -46,9 +46,6 @@ yarn-error.log*
 ### JS Sourcemaps ###
 *.js.map
 
-### Public folder ###
-public
-
 ### IntelliJ ###
 /.idea
 
