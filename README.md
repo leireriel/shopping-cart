@@ -55,20 +55,25 @@ shopping-cart
 
 ## 📦 Dependencies
 
-* [react](https://www.npmjs.com/package/react) ⚛ 
+I used `Create React App` because it provides me with Webpack, Babel and ESLint configuration that is sufficient for my little project. It includes the following dependencies:
+* React ⚛
+* Webpack
+* Babel
+* ESLint
+* Jest
+If I wanted to modify the configutation of this modules I could run `$ npm run eject`.
+
+Also I installed:
 * [prop-types](https://www.npmjs.com/package/prop-types)
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 * [node-sass](https://www.npmjs.com/package/node-sass)
 
-I also used the following dependencies, included in Create React App 2.0. <br />
-In order to see or modify the dependencies in `package.json` you can `$ npm run eject`, which I did not as I liked the react configuration for this modules:
-* ESLint
-* Babel
-* Webpack
-* Jest
 
-Babel plugins:
+And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
+
+To consider:
+* Note that I have set `NODE_PATH=src` in `.env` file, in order to allow absolute paths on imports.
 
 ## 💪 Challenges
 
@@ -77,8 +82,8 @@ Babel plugins:
 ## 💡 To Do
 
 ...
-<!-- alias para importar sin ../../ rutas absolutas! :), no relativas -->
-<!-- ver si eslint y optional-chaining están funcionando -->
+<!-- usar optional-chaining -->
+<!-- redux -->
 <!-- Tests -->
 
 ## 🔧 Production build

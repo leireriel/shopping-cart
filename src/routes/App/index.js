@@ -1,16 +1,13 @@
 import React from 'react';
-import '../../styles/_base.scss';
+import { Switch, Route } from 'react-router-dom';
+import Shop from 'routes/Shop';
 
-function App() {
-  return (
-    <>
-      <header>
-        hola header
-      </header>
-      <main />
-      <footer />
-    </>
-  );
-}
+const App = () => (
+  <Switch>
+    <Route exact path="/" render={() =>
+      <Shop/>
+    }/>
+  </Switch>
+);
 
 export default App;
