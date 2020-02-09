@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
+import Counter from 'components/Counter';
 
-const Shop = () => {
+const Shop = memo(() => {
   const hola = {
     uno: {
       dos: 'pintame'
@@ -11,10 +12,12 @@ const Shop = () => {
       <header>
         hola header {hola.fdf?.dos}
       </header>
-      <main />
+      <main>
+        <Counter />
+      </main>
       <footer />
     </>
   )
-};
+});
 
 export default Shop;
