@@ -55,10 +55,10 @@ shopping-cart
 
 ## 📦 Dependencies
 
-I used `Create React App` because it provides me with webpack and babel configuration that is sufficient for my little project. It includes the following dependencies:
+I used `Create React App` because it provides me with Webpack, Babel and ESLint configuration that is sufficient for my little project. It includes the following dependencies:
 * React ⚛
-* Babel
 * Webpack
+* Babel
 * ESLint
 * Jest
 If I wanted to modify the configutation of this modules I could run `$ npm run eject`.
@@ -69,8 +69,11 @@ Also I installed:
 * [node-sass](https://www.npmjs.com/package/node-sass)
 
 
-And this babel plugin:
+And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
+
+To consider:
+* Note that I have set `NODE_PATH=src` in `.env` file, in order to allow absolute paths on imports.
 
 ## 💪 Challenges
 
@@ -79,7 +82,8 @@ And this babel plugin:
 ## 💡 To Do
 
 ...
-<!-- ver si eslint y optional-chaining están funcionando -->
+<!-- ver si optional-chaining está funcionando -->
+<!-- redux -->
 <!-- Tests -->
 
 ## 🔧 Production build
