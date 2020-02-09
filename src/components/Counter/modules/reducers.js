@@ -1,7 +1,7 @@
-import { ADD_ONE, REMOVE_ONE } from 'actions';
-import initialState from './initialState';
+import { ADD_ONE, REMOVE_ONE } from './actions.js';
+import initialState from 'reducers/initialState';
 
-const reducer = (state = initialState, action) => {
+const reducerCounter = (state = initialState, action) => {
   switch(action.type) {
     case ADD_ONE:
       return {
@@ -16,4 +16,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer;
+export default reducerCounter;

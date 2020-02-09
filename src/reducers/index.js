@@ -1,3 +1,6 @@
-import reducerNumbers from './reducerNumbers';
+import { combineReducers } from 'redux';
+import reducerCounter from 'components/Counter/modules';
 
-export default reducerNumbers;
+export default combineReducers({
+  reducerCounter,
+});
