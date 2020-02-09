@@ -82,7 +82,7 @@ To consider:
 ## 💡 To Do
 
 ...
-<!-- ver si optional-chaining está funcionando -->
+<!-- usar optional-chaining -->
 <!-- redux -->
 <!-- Tests -->
 
