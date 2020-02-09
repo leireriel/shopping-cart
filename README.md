@@ -69,6 +69,7 @@ Also I installed:
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 * [node-sass](https://www.npmjs.com/package/node-sass)
 * [redux](https://www.npmjs.com/package/redux)
+* [react-redux](https://www.npmjs.com/package/react-redux)
 
 
 And this Babel plugin:

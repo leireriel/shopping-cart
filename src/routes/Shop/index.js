@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from 'components/Counter';
 
 const Shop = () => {
   const hola = {
@@ -11,7 +12,9 @@ const Shop = () => {
       <header>
         hola header {hola.fdf?.dos}
       </header>
-      <main />
+      <main>
+        <Counter />
+      </main>
       <footer />
     </>
   )
