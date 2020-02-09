@@ -61,12 +61,14 @@ I used `Create React App` because it provides me with Webpack, Babel and ESLint 
 * Babel
 * ESLint
 * Jest
+
 If I wanted to modify the configutation of this modules I could run `$ npm run eject`.
 
 Also I installed:
 * [prop-types](https://www.npmjs.com/package/prop-types)
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 * [node-sass](https://www.npmjs.com/package/node-sass)
+* [redux](https://www.npmjs.com/package/redux)
 
 
 And this Babel plugin:
