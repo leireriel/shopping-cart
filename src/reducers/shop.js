@@ -1,7 +1,7 @@
-import { ADD_ONE, REMOVE_ONE } from './actions.js';
+import { ADD_ONE, REMOVE_ONE } from 'actions';
 import initialState from 'reducers/initialState';
 
-const reducerCounter = (state = initialState, action) => {
+const shop = (state = initialState, action) => {
   switch(action.type) {
     case ADD_ONE:
       return {
@@ -16,4 +16,4 @@ const reducerCounter = (state = initialState, action) => {
     }
 }
 
-export default reducerCounter;
+export default shop;

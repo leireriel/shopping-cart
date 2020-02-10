@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { containerStyle, buttonStyle } from './styles';
 
 const Counter = memo(({ number, dispatch }) => {
@@ -18,5 +19,10 @@ const Counter = memo(({ number, dispatch }) => {
     </div>
   );
 })
+
+Counter.propTypes = {
+  item: PropTypes.string.isRequired,
+  shop: PropTypes.object.isRequired
+}
 
 export default Counter;
