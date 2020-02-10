@@ -1,5 +1,6 @@
-import reducerCounter from 'components/Counter/modules';
+import { combineReducers } from 'redux';
+import shop from './shop';
 
-export default reducerCounter;
-
-//TODO: try import { combineReducers } from 'redux';
+export default combineReducers({
+  shop
+});

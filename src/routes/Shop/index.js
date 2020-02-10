@@ -13,7 +13,7 @@ const Shop = () => {
         hola header {hola.fdf?.dos}
       </header>
       <main>
-        <Counter />
+        <Counter item='tshirt' />
       </main>
       <footer />
     </>

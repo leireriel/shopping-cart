@@ -1,10 +1,17 @@
 import { connect } from 'react-redux';
+import { addOne, removeOne } from 'actions';
 import Counter from '../components';
 
-const mapStateToProps = (state) => {
-  return {
-    number: state.number
-  };
-}
+const mapStateToProps = state => ({
+  shop: state.shop
+});
 
-export default connect(mapStateToProps)(Counter);
+const mapDispatchToProps = dispatch => ({
+  addOne: item => dispatch(addOne(item)),
+  removeOne: item => dispatch(removeOne(item))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter);
