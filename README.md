@@ -18,7 +18,7 @@ Creating project structure :)
 You need to have installed [Node.js](https://nodejs.org/), and then:
 
 1. `$ git clone https://github.com/leireriel/shopping-cart.git`
-2. `$ npm install`
+2. `$ npm i`
 3. `$ npm start` + open `http://localhost:3000/`
 
 ## ⛩️ Structure
@@ -67,10 +67,8 @@ If I wanted to modify the configutation of this modules I could run `$ npm run e
 Also I installed:
 * [prop-types](https://www.npmjs.com/package/prop-types)
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
-* [node-sass](https://www.npmjs.com/package/node-sass)
 * [redux](https://www.npmjs.com/package/redux)
 * [react-redux](https://www.npmjs.com/package/react-redux)
-
 
 And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)

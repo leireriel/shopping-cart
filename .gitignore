@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/sass,node
+# Created by https://www.gitignore.io/api/node
 
 # Thumbnails
 ._*
@@ -19,8 +19,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-### Sass ###
-/.sass-cache
+### Css ###
 *.css.map
 
 ### JS Sourcemaps ###
