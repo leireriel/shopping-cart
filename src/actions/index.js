@@ -1,2 +1,8 @@
-export const ADD_ONE = 'ADD_ONE';
-export const REMOVE_ONE = 'REMOVE_ONE';
+export const addOne = number => ({ 
+  type: 'ADD_ONE',
+  payload: number
+});
+
+export const removeOne = () => ({ 
+  type: 'REMOVE_ONE'
+});

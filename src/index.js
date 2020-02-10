@@ -1,14 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import { HashRouter } from 'react-router-dom';
-import rootReducer from 'reducers';
-import { ALLOW_REDUX_DEV_TOOLS } from 'constants/index';
+import { createStore } from 'redux';
+import allReducers from 'reducers';
 import App from 'routes/App';
 import 'styles/index.scss';
 
-const store = createStore(rootReducer, ALLOW_REDUX_DEV_TOOLS);
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 render(
   <Provider store={store}>
