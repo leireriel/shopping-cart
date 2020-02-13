@@ -25,7 +25,6 @@ const Product = memo(({ name, code, price, currency='€' }) => {
             <img src={imgCap} alt={name} />
           ) : null
         }
-        {/* hacer imagenes con styled components? */}
         <div className='product-description'>
           <h1>{name}</h1>
           <p className='product-code'>Product code {code}</p>
