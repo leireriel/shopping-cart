@@ -1,19 +1,21 @@
 import { SHIRT, MUG, CAP } from 'constants/index';
 
-export const actionShirt = (setAmount, price) => ({ 
+export const actionShirt = (actionToPerform, price) => ({ 
   type: SHIRT,
-  setAmount,
+  actionToPerform,
   price
 });
 
-export const actionMug = (setAmount, price) => ({ 
+export const actionMug = (actionToPerform, price) => ({ 
   type: MUG,
-  setAmount,
+  actionToPerform,
   price
 });
 
-export const actionCap = (setAmount, price) => ({ 
+export const actionCap = (actionToPerform, price) => ({ 
   type: CAP,
-  setAmount,
+  actionToPerform,
   price
 });
+
+// TODO una sola function
