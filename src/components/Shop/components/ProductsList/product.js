@@ -1,33 +1,105 @@
 import React, { memo } from 'react';
-//importar imágenes aquí
+import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { ADD_ONE, REMOVE_ONE } from 'constants/index';
+import { 
+  actionShirt,
+  actionMug,
+  actionCap
+} from 'actions';
+import imgShirt from 'img/shirt.png';
+import imgMug from 'img/mug.png';
+import imgCap from 'img/cap.png';
 
-const Product = memo(({ item, code, price }) => (
+const Product = memo(({ name, code, price, currency='€' }) => {
+  // poner descripción a funciones
+  const counterShirt = useSelector(state => state.products.shirt);
+  const counterMug = useSelector(state => state.products.mug);
+  const counterCap = useSelector(state => state.products.cap);
+  const dispatch = useDispatch();
+  
+  return (
   <li className='product row'>
     <div className='col-product'>
       <figure className='product-image'>
-        <img src='img/shirt.png // img/mug.png // img/cap.png' alt={item} />
+        {
+          name === 'Shirt' ? (
+            <img src={imgShirt} alt={name} />
+          ) : name === 'Mug' ? (
+            <img src={imgMug} alt={name} />
+          ) : name === 'Cap' ? (
+            <img src={imgCap} alt={name} />
+          ) : null
+        }
         <div className='product-description'>
-          <h1>{item}</h1>
+          <h1>{name}</h1>
           <p className='product-code'>Product code {code}</p>
         </div>
       </figure>
     </div>
     <div className='col-quantity'>
-      <button className='count'>-</button>
-      <input type='text' className='product-quantity' defaultValue='0' />
-      <button className='count'>+</button>
+      {
+        name === 'Shirt' ? (
+          <>
+            <button onClick={() => dispatch(actionShirt(REMOVE_ONE, price))} className='count'>
+              -
+            </button>
+            <input type='text' className='product-quantity' value={counterShirt.amount} />
+            <button onClick={() => dispatch(actionShirt(ADD_ONE, price))} className='count'>
+              +
+            </button>
+          </>
+        ) : name === 'Mug' ? (
+          <>
+            <button onClick={() => dispatch(actionMug(REMOVE_ONE, price))} className='count'>
+              -
+            </button>
+            <input type='text' className='product-quantity' value={counterMug.amount} />
+            <button onClick={() => dispatch(actionMug(ADD_ONE, price))} className='count'>
+              +
+            </button>
+          </>
+        ) : name === 'Cap' ? (
+          <>
+            <button onClick={() => dispatch(actionCap(REMOVE_ONE, price))} className='count'>
+              -
+            </button>
+            <input type='text' className='product-quantity' value={counterCap.amount} />
+            <button onClick={() => dispatch(actionCap(ADD_ONE, price))} className='count'>
+              +
+            </button>
+          </>
+        ) : null
+      }
     </div>
     <div className='col-price'>
       <span className='product-price'>{price}</span>
-      <span className='product-currency currency'>€ // poner currency='€' como prop por defecto en componente, y así no envío nada</span>
+      <span className='product-currency currency'></span>
     </div>
     <div className='col-total'>
-      <span className='product-price'>0 // esto creo que es el productPrice x productQuantity</span>
-      <span className='product-currency currency'>€ // poner currency='€' como prop por defecto en componente, y así no envío nada</span>
+      <span className='product-price'>{
+          name === 'Shirt'
+            ? counterShirt.priceTotal
+            : name === 'Mug'
+            ? counterMug.priceTotal
+            : name === 'Cap'
+            ? counterCap.priceTotal
+            : null
+        }
+      </span>
+      <span className='product-currency currency'>€</span>
     </div>
   </li>
-));
+  );
+});
 
 //recibir objeto con destructuring y € por defecto
+
+Product.propTypes = {
+  name: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  currency: PropTypes.string
+}
 
 export default Product;

@@ -14,7 +14,6 @@ import Order from 'components/Order';
 const App = memo(() => (
   <main className='App'>
     <Shop />
-
     <Order />
   </main>
 ));
