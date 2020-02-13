@@ -66,7 +66,6 @@ If I wanted to modify the configutation of this modules I could run `$ npm run e
 
 Also I installed:
 * [prop-types](https://www.npmjs.com/package/prop-types)
-* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 * [redux](https://www.npmjs.com/package/redux)
 * [react-redux](https://www.npmjs.com/package/react-redux)
 
