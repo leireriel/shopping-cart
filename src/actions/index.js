@@ -1,8 +1,17 @@
-export const addOne = number => ({ 
-  type: 'ADD_ONE',
-  payload: number
+export const actionShirt = (setAmount, price) => ({ 
+  type: 'SHIRT',
+  setAmount,
+  price
 });
 
-export const removeOne = () => ({ 
-  type: 'REMOVE_ONE'
+export const actionMug = (setAmount, price) => ({ 
+  type: 'MUG',
+  setAmount,
+  price
+});
+
+export const actionCap = (setAmount, price) => ({ 
+  type: 'CAP',
+  setAmount,
+  price
 });
