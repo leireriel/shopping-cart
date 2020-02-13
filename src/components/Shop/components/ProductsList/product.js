@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { ADD_ONE, REMOVE_ONE } from 'constants/index';
 import { 
   actionShirt,
   actionMug,
@@ -40,31 +41,31 @@ const Product = memo(({ name, code, price, currency='€' }) => {
       {
         name === 'Shirt' ? (
           <>
-            <button onClick={() => dispatch(actionShirt('REMOVE_ONE', price))} className='count'>
+            <button onClick={() => dispatch(actionShirt(REMOVE_ONE, price))} className='count'>
               -
             </button>
             <input type='text' className='product-quantity' value={counterShirt.amount} />
-            <button onClick={() => dispatch(actionShirt('ADD_ONE', price))} className='count'>
+            <button onClick={() => dispatch(actionShirt(ADD_ONE, price))} className='count'>
               +
             </button>
           </>
         ) : name === 'Mug' ? (
           <>
-            <button onClick={() => dispatch(actionMug('REMOVE_ONE', price))} className='count'>
+            <button onClick={() => dispatch(actionMug(REMOVE_ONE, price))} className='count'>
               -
             </button>
             <input type='text' className='product-quantity' value={counterMug.amount} />
-            <button onClick={() => dispatch(actionMug('ADD_ONE', price))} className='count'>
+            <button onClick={() => dispatch(actionMug(ADD_ONE, price))} className='count'>
               +
             </button>
           </>
         ) : name === 'Cap' ? (
           <>
-            <button onClick={() => dispatch(actionCap('REMOVE_ONE', price))} className='count'>
+            <button onClick={() => dispatch(actionCap(REMOVE_ONE, price))} className='count'>
               -
             </button>
             <input type='text' className='product-quantity' value={counterCap.amount} />
-            <button onClick={() => dispatch(actionCap('ADD_ONE', price))} className='count'>
+            <button onClick={() => dispatch(actionCap(ADD_ONE, price))} className='count'>
               +
             </button>
           </>

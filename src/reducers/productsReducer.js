@@ -1,22 +1,10 @@
-const initialState = {
-  shirt: {
-    amount: 0,
-    priceTotal: 0
-  },
-  mug: {
-    amount: 0,
-    priceTotal: 0
-  },
-  cap: {
-    amount: 0,
-    priceTotal: 0
-  }
-}
+import initialState from './initialState';
+import { SHIRT, MUG, CAP, ADD_ONE, REMOVE_ONE } from 'constants/index';
 
 const productsReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'SHIRT':
-      if (action.setAmount === 'ADD_ONE') {
+    case SHIRT:
+      if (action.setAmount === ADD_ONE) {
         return {
           ...state,
           shirt: {
@@ -24,7 +12,7 @@ const productsReducer = (state = initialState, action) => {
             priceTotal: action.price * (state.shirt.amount + 1)
           }
         }
-      } else if (action.setAmount === 'REMOVE_ONE' && state.shirt.amount > 0) {
+      } else if (action.setAmount === REMOVE_ONE && state.shirt.amount > 0) {
         return {
           ...state,
           shirt: {
@@ -34,8 +22,8 @@ const productsReducer = (state = initialState, action) => {
         }
       }
       return state;
-    case 'MUG':
-      if (action.setAmount === 'ADD_ONE') {
+    case MUG:
+      if (action.setAmount === ADD_ONE) {
         return {
           ...state,
           mug: {
@@ -43,7 +31,7 @@ const productsReducer = (state = initialState, action) => {
             priceTotal: action.price * (state.mug.amount + 1)
           }
         }
-      } else if (action.setAmount === 'REMOVE_ONE' && state.mug.amount > 0) {
+      } else if (action.setAmount === REMOVE_ONE && state.mug.amount > 0) {
         return {
           ...state,
           mug: {
@@ -53,8 +41,8 @@ const productsReducer = (state = initialState, action) => {
         }
       }
       return state;
-    case 'CAP':
-      if (action.setAmount === 'ADD_ONE') {
+    case CAP:
+      if (action.setAmount === ADD_ONE) {
         return {
           ...state,
           cap: {
@@ -62,7 +50,7 @@ const productsReducer = (state = initialState, action) => {
             priceTotal: action.price * (state.cap.amount + 1)
           }
         }
-      } else if (action.setAmount === 'REMOVE_ONE' && state.cap.amount > 0) {
+      } else if (action.setAmount === REMOVE_ONE && state.cap.amount > 0) {
         return {
           ...state,
           cap: {
