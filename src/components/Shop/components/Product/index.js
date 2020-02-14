@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { ADD_ONE, REMOVE_ONE, SHIRT, MUG, CAP } from 'constants/index';
 import { actionProduct } from 'actions';
-import imgShirt from 'img/shirt.png';
-import imgMug from 'img/mug.png';
-import imgCap from 'img/cap.png';
 
 const Product = memo(({ name, code, price, currency }) => {
   // poner descripción a funciones
@@ -14,19 +11,18 @@ const Product = memo(({ name, code, price, currency }) => {
   const counterCap = useSelector(state => state.products.cap);
   const dispatch = useDispatch();
   
+  const renderImg = () => {
+    const newName = name.toLowerCase();
+    return (
+      <img src={`img/${newName}.png`} alt={name} />
+    );
+  };
+
   return (
   <li className='product row'>
     <div className='col-product'>
       <figure className='product-image'>
-        {
-          name === 'Shirt' ? (
-            <img src={imgShirt} alt={name} />
-          ) : name === 'Mug' ? (
-            <img src={imgMug} alt={name} />
-          ) : name === 'Cap' ? (
-            <img src={imgCap} alt={name} />
-          ) : null
-        }
+        {renderImg()}
         <div className='product-description'>
           <h1>{name}</h1>
           <p className='product-code'>Product code {code}</p>
