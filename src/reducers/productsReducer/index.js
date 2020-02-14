@@ -30,11 +30,10 @@ const productsReducer = (state = getInitialState(), action) => {
 
   const nameOfProduct = () => getAllProductNames().find((name) => name === action.type)
 
-  switch(action.type) {
-    case nameOfProduct():
-      return isIncrementOrDecrement(nameOfProduct());
-    default:
-      return state;
+  if (nameOfProduct()) {
+    return isIncrementOrDecrement(nameOfProduct());
+  } else {
+    return state;
   }
 };
 
