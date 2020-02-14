@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { SHIRT_DETAILS, MUG_DETAILS, CAP_DETAILS } from 'constants/index';
+import { SHIRT_DETAILS, MUG_DETAILS, CAP_DETAILS } from 'components/Shop/constants';
 import Product from '../Product';
 
 const ProductsList = memo(() => (

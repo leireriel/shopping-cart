@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { ADD_ONE, REMOVE_ONE, SHIRT, MUG, CAP } from 'constants/index';
+import { ADD_ONE, REMOVE_ONE, SHIRT, MUG, CAP } from 'components/Shop/constants';
 import { actionProduct } from 'actions';
 
 const Product = memo(({ name, code, price, currency }) => {

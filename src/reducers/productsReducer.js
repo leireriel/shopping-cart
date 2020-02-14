@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { SHIRT, MUG, CAP, ADD_ONE, REMOVE_ONE } from 'constants/index';
+import { SHIRT, MUG, CAP, ADD_ONE, REMOVE_ONE } from 'components/Shop/constants';
 
 const productsReducer = (state = initialState, action) => {
   const setNewState = (product, newAmount) => ({
