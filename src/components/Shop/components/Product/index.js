@@ -12,8 +12,8 @@ const Product = memo(({ name, code, price, currency }) => {
   const nameLower = name.toLowerCase();
   const image = require(`img/${nameLower}.png`);
   
-  const removeOne = () => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:name}));
-  const addOne= () => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:name}));
+  const removeOne = () => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, product:name}));
+  const addOne= () => dispatch(actionProduct({actionToPerform:ADD_ONE, price, product:name}));
 
   return (
     <li className='product row'>
