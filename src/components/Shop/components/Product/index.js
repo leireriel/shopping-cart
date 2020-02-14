@@ -6,20 +6,40 @@ import { actionProduct } from 'actions';
 
 const Product = memo(({ name, code, price, currency }) => {
   // poner descripción a funciones
-  const counterShirt = useSelector(state => state.products.shirt);
-  const counterMug = useSelector(state => state.products.mug);
-  const counterCap = useSelector(state => state.products.cap);
+  const counter = useSelector(state => state.products);
   const dispatch = useDispatch();
   
-  const renderImg = () => {
-    const newName = name.toLowerCase();
-    return (
-      <img src={`img/${newName}.png`} alt={name} />
-    );
-  };
+  const nameLower = name.toLowerCase();
+  const nameUpper = name.toUpperCase();
 
+  const renderPriceTotal = () => (
+    <span className='product-price'>{counter[nameLower].priceTotal}</span>
+  );
+  
+  const renderQuantity = () => (
+    <>
+      <button
+        onClick={() => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:nameUpper}))}
+        className='count'
+      >
+        -
+      </button>
+      <input type='text' className='product-quantity' value={counter[nameLower].amount} />
+      <button
+        onClick={() => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:nameUpper}))}
+        className='count'
+      >
+        +
+      </button>
+    </>
+  );
+
+  const renderImg = () => (
+    <img src={`img/${nameLower}.png`} alt={name} />
+  );
+  
   return (
-  <li className='product row'>
+    <li className='product row'>
     <div className='col-product'>
       <figure className='product-image'>
         {renderImg()}
@@ -30,74 +50,15 @@ const Product = memo(({ name, code, price, currency }) => {
       </figure>
     </div>
     <div className='col-quantity'>
-      {
-        name === 'Shirt' ? (
-          <>
-            <button
-              onClick={() => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:SHIRT}))}
-              className='count'
-            >
-              -
-            </button>
-            <input type='text' className='product-quantity' value={counterShirt.amount} />
-            <button
-              onClick={() => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:SHIRT}))}
-              className='count'
-            >
-              +
-            </button>
-          </>
-        ) : name === 'Mug' ? (
-          <>
-            <button
-              onClick={() => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:MUG}))}
-              className='count'
-            >
-              -
-            </button>
-            <input type='text' className='product-quantity' value={counterMug.amount} />
-            <button
-              onClick={() => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:MUG}))}
-              className='count'
-            >
-              +
-            </button>
-          </>
-        ) : name === 'Cap' ? (
-          <>
-            <button
-              onClick={() => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:CAP}))}
-              className='count'
-            >
-              -
-            </button>
-            <input type='text' className='product-quantity' value={counterCap.amount} />
-            <button
-              onClick={() => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:CAP}))}
-              className='count'
-            >
-              +
-            </button>
-          </>
-        ) : null
-      }
+      {renderQuantity()}
     </div>
     <div className='col-price'>
       <span className='product-price'>{price}</span>
       <span className='product-currency currency'></span>
     </div>
     <div className='col-total'>
-      <span className='product-price'>{
-          name === 'Shirt'
-            ? counterShirt.priceTotal
-            : name === 'Mug'
-            ? counterMug.priceTotal
-            : name === 'Cap'
-            ? counterCap.priceTotal
-            : null
-        }
-      </span>
-      <span className='product-currency currency'>€</span>
+      {renderPriceTotal()}
+      <span className='product-currency currency'>{currency}</span>
     </div>
   </li>
   );
