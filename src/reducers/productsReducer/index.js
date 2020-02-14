@@ -1,8 +1,7 @@
 import { ADD_ONE, REMOVE_ONE } from 'components/Shop/constants';
-import initialState from './initialState';
-import NAMES_OF_PRODUCTS from './constants';
+import { getAllProductNames, getInitialState } from './utils';
 
-const productsReducer = (state = initialState, action) => {
+const productsReducer = (state = getInitialState(), action) => {
   const setNewState = (product, newAmount) => ({
     ...state,
     [product]: {
@@ -29,9 +28,11 @@ const productsReducer = (state = initialState, action) => {
     return state;
   };
 
+  const nameOfProduct = () => getAllProductNames().find((name) => name === action.type)
+
   switch(action.type) {
-    case NAMES_OF_PRODUCTS.find((name) => name === action.type):
-      return isIncrementOrDecrement(NAMES_OF_PRODUCTS.find((name) => name === action.type).toLowerCase());
+    case nameOfProduct():
+      return isIncrementOrDecrement(nameOfProduct());
     default:
       return state;
   }

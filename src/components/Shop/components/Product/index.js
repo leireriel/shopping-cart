@@ -10,11 +10,10 @@ const Product = memo(({ name, code, price, currency }) => {
   const dispatch = useDispatch();
   
   const nameLower = name.toLowerCase();
-  const nameUpper = name.toUpperCase();
   const image = require(`img/${nameLower}.png`);
   
-  const removeOne = () => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:nameUpper}));
-  const addOne= () => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:nameUpper}));
+  const removeOne = () => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:name}));
+  const addOne= () => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:name}));
 
   return (
     <li className='product row'>
@@ -31,7 +30,7 @@ const Product = memo(({ name, code, price, currency }) => {
       <button onClick={() => removeOne()} className='count'>
         -
       </button>
-      <input type='text' className='product-quantity' value={counter[nameLower].amount} readOnly />
+      <input type='text' className='product-quantity' value={counter[name].amount} readOnly />
       <button onClick={() => addOne()} className='count'>
         +
       </button>
@@ -41,7 +40,7 @@ const Product = memo(({ name, code, price, currency }) => {
       <span className='product-currency currency'></span>
     </div>
     <div className='col-total'>
-      <span className='product-price'>{counter[nameLower].priceTotal}</span>
+      <span className='product-price'>{counter[name].priceTotal}</span>
       <span className='product-currency currency'>{currency}</span>
     </div>
   </li>
