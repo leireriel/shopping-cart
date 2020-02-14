@@ -1,5 +1,6 @@
+import { ADD_ONE, REMOVE_ONE } from 'components/Shop/constants';
 import initialState from './initialState';
-import { SHIRT, MUG, CAP, ADD_ONE, REMOVE_ONE } from 'components/Shop/constants';
+import NAMES_OF_PRODUCTS from './constants';
 
 const productsReducer = (state = initialState, action) => {
   const setNewState = (product, newAmount) => ({
@@ -29,12 +30,8 @@ const productsReducer = (state = initialState, action) => {
   };
 
   switch(action.type) {
-    case SHIRT:
-      return isIncrementOrDecrement('shirt');
-    case MUG:
-      return isIncrementOrDecrement('mug');
-    case CAP:
-      return isIncrementOrDecrement('cap');
+    case NAMES_OF_PRODUCTS.find((name) => name === action.type):
+      return isIncrementOrDecrement(NAMES_OF_PRODUCTS.find((name) => name === action.type).toLowerCase());
     default:
       return state;
   }
