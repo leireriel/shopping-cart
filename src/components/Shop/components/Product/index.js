@@ -31,7 +31,7 @@ const Product = memo(({ name, code, price, currency }) => {
       <button onClick={() => removeOne()} className='count'>
         -
       </button>
-      <input type='text' className='product-quantity' value={counter[nameLower].amount} />
+      <input type='text' className='product-quantity' value={counter[nameLower].amount} readOnly />
       <button onClick={() => addOne()} className='count'>
         +
       </button>

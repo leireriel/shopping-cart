@@ -1,15 +1,22 @@
 import React, { memo } from 'react';
-import { SHIRT_DETAILS, MUG_DETAILS, CAP_DETAILS } from 'components/Shop/constants';
+import { ALL_PRODUCTS } from 'components/Shop/constants';
 import Product from 'components/Shop/components/Product';
 
-const ProductsList = memo(() => (
-  <ul className='products-list'>
-    <Product {...SHIRT_DETAILS} />
-    <Product {...MUG_DETAILS} />
-    <Product {...CAP_DETAILS} />
-  </ul>
-));
+// We receibe an array with all products (that could be a response from API)
+// It is very easy to grow, and also the reducer associated
 
-// crear array of products que haga esto automático?
+const ProductsList = memo(() => {
+  let listOfProducts = [];
+
+  for (const product of ALL_PRODUCTS) {
+    listOfProducts.push(<Product {...product} key={product.code} />);
+  }
+
+  return (
+    <ul className='products-list'>
+      {listOfProducts}
+    </ul>
+  );
+});
 
 export default ProductsList;

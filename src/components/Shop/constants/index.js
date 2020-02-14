@@ -12,44 +12,23 @@ export const DISCOUNT_SHIRT = 'DISCOUNT_SHIRT';
 export const DISCOUNT_MUG = 'DISCOUNT_MUG';
 
 // All products (could be response from API)
-export const ALL_PRODUCTS = {
-  shirt: {
+export const ALL_PRODUCTS = [
+  {
     name: 'Shirt',
     code: 'X7R2OPX',
     price: 20,
     currency: '€'
   },
-  mug: {
+  {
     name: 'Mug',
     code: 'X2G2OPZ',
     price: 5,
     currency: '€'
   },
-  cap: {
+  {
     name: 'Cap',
     code: 'X3W2OPY',
     price: 10,
     currency: '€'
   }
-}
-
-export const SHIRT_DETAILS = {
-  name: 'Shirt',
-  code: 'X7R2OPX',
-  price: 20,
-  currency: '€'
-}
-
-export const MUG_DETAILS = {
-  name: 'Mug',
-  code: 'X2G2OPZ',
-  price: 5,
-  currency: '€'
-}
-
-export const CAP_DETAILS = {
-  name: 'Cap',
-  code: 'X3W2OPY',
-  price: 10,
-  currency: '€'
-}
+];
