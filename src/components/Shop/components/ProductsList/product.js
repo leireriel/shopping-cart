@@ -7,7 +7,7 @@ import imgShirt from 'img/shirt.png';
 import imgMug from 'img/mug.png';
 import imgCap from 'img/cap.png';
 
-const Product = memo(({ name, code, price, currency='€' }) => {
+const Product = memo(({ name, code, price, currency }) => {
   // poner descripción a funciones
   const counterShirt = useSelector(state => state.products.shirt);
   const counterMug = useSelector(state => state.products.mug);
@@ -107,13 +107,11 @@ const Product = memo(({ name, code, price, currency='€' }) => {
   );
 });
 
-//recibir objeto con destructuring y € por defecto
-
 Product.propTypes = {
   name: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  currency: PropTypes.string
+  currency: PropTypes.string.isRequired
 }
 
 export default Product;
