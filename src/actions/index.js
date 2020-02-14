@@ -1,5 +1,5 @@
-export const actionProduct = ({actionToPerform, price, type}) => ({ 
-  type,
+export const actionProduct = ({ product, actionToPerform, price }) => ({ 
+  product,
   actionToPerform,
   price
 });
