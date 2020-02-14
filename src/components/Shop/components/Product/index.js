@@ -37,7 +37,7 @@ const Product = memo(({ name, code, price, currency }) => {
     </div>
     <div className='col-price'>
       <span className='product-price'>{price}</span>
-      <span className='product-currency currency'></span>
+      <span className='product-currency currency'>{currency}</span>
     </div>
     <div className='col-total'>
       <span className='product-price'>{counter[name].priceTotal}</span>
