@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { ADD_ONE, REMOVE_ONE, SHIRT, MUG, CAP } from 'components/Shop/constants';
+import { ADD_ONE, REMOVE_ONE } from 'components/Shop/constants';
 import { actionProduct } from 'actions';
 
 const Product = memo(({ name, code, price, currency }) => {
@@ -11,38 +11,16 @@ const Product = memo(({ name, code, price, currency }) => {
   
   const nameLower = name.toLowerCase();
   const nameUpper = name.toUpperCase();
-
-  const renderPriceTotal = () => (
-    <span className='product-price'>{counter[nameLower].priceTotal}</span>
-  );
+  const image = require(`img/${nameLower}.png`);
   
-  const renderQuantity = () => (
-    <>
-      <button
-        onClick={() => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:nameUpper}))}
-        className='count'
-      >
-        -
-      </button>
-      <input type='text' className='product-quantity' value={counter[nameLower].amount} />
-      <button
-        onClick={() => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:nameUpper}))}
-        className='count'
-      >
-        +
-      </button>
-    </>
-  );
+  const removeOne = () => dispatch(actionProduct({actionToPerform:REMOVE_ONE, price, type:nameUpper}));
+  const addOne= () => dispatch(actionProduct({actionToPerform:ADD_ONE, price, type:nameUpper}));
 
-  const renderImg = () => (
-    <img src={`img/${nameLower}.png`} alt={name} />
-  );
-  
   return (
     <li className='product row'>
     <div className='col-product'>
       <figure className='product-image'>
-        {renderImg()}
+        <img src={image} alt={name} />
         <div className='product-description'>
           <h1>{name}</h1>
           <p className='product-code'>Product code {code}</p>
@@ -50,14 +28,20 @@ const Product = memo(({ name, code, price, currency }) => {
       </figure>
     </div>
     <div className='col-quantity'>
-      {renderQuantity()}
+      <button onClick={() => removeOne()} className='count'>
+        -
+      </button>
+      <input type='text' className='product-quantity' value={counter[nameLower].amount} />
+      <button onClick={() => addOne()} className='count'>
+        +
+      </button>
     </div>
     <div className='col-price'>
       <span className='product-price'>{price}</span>
       <span className='product-currency currency'></span>
     </div>
     <div className='col-total'>
-      {renderPriceTotal()}
+      <span className='product-price'>{counter[nameLower].priceTotal}</span>
       <span className='product-currency currency'>{currency}</span>
     </div>
   </li>

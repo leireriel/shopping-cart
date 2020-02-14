@@ -1,4 +1,4 @@
-export const actionProduct = ({actionToPerform, price, type}) => ({ 
+export const actionProduct = ({ type, actionToPerform, price }) => ({ 
   type,
   actionToPerform,
   price

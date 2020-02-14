@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { SHIRT_DETAILS, MUG_DETAILS, CAP_DETAILS } from 'components/Shop/constants';
-import Product from '../Product';
+import Product from 'components/Shop/components/Product';
 
 const ProductsList = memo(() => (
   <ul className='products-list'>
