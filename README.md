@@ -68,6 +68,7 @@ Also I installed:
 * [prop-types](https://www.npmjs.com/package/prop-types)
 * [redux](https://www.npmjs.com/package/redux)
 * [react-redux](https://www.npmjs.com/package/react-redux)
+* [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 
 And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
