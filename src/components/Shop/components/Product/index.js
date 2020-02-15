@@ -1,8 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { ADD_ONE, REMOVE_ONE } from 'components/Shop/constants';
-import { actionProduct } from 'actions';
+import { addOne, removeOne } from 'actions';
 
 const Product = memo(({ name, code, price, currency }) => {
   // poner descripción a funciones
@@ -11,9 +10,6 @@ const Product = memo(({ name, code, price, currency }) => {
   
   const nameLower = name.toLowerCase();
   const image = require(`img/${nameLower}.png`);
-  
-  const removeOne = () => dispatch(actionProduct({ type:name, actionToPerform:REMOVE_ONE, price }));
-  const addOne= () => dispatch(actionProduct({ type:name, actionToPerform:ADD_ONE, price }));
 
   return (
     <li className='product row'>
@@ -27,11 +23,11 @@ const Product = memo(({ name, code, price, currency }) => {
       </figure>
     </div>
     <div className='col-quantity'>
-      <button onClick={() => removeOne()} className='count'>
+      <button onClick={() => dispatch(removeOne({ product:name, price }))} className='count'>
         -
       </button>
       <input type='text' className='product-quantity' value={counter[name].amount} readOnly />
-      <button onClick={() => addOne()} className='count'>
+      <button onClick={() => dispatch(addOne({ product:name, price }))} className='count'>
         +
       </button>
     </div>
