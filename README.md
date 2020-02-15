@@ -70,8 +70,7 @@ Also I installed:
 * [react-redux](https://www.npmjs.com/package/react-redux)
 * [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 
-And this Babel plugins:
-* [babel-eslint](https://www.npmjs.com/package/babel-eslint)
+And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
 
 To consider:
