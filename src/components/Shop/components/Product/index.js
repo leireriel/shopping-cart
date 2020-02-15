@@ -1,35 +1,22 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
-import { addOne, removeOne } from './modules/actions';
+import { useSelector } from 'react-redux';
 import ProductDetails from './components/ProductDetails';
+import Quantity from './components/Quantity';
+import Price from './components/Price';
+import Total from './components/Total';
 
 const Product = memo(({ name, code, price, currency }) => {
-  // poner descripción a funciones
-  const products = useSelector(state => state.products);
-  const dispatch = useDispatch();
+  // TODO poner descripción a funciones
+  const productsState = useSelector(state => state.products);
 
   return (
     <li className='product row'>
-    <ProductDetails name={name} code={code} />
-    <div className='col-quantity'>
-      <button onClick={() => dispatch(removeOne({ product:name, price }))} className='count'>
-        -
-      </button>
-      <input type='text' className='product-quantity' value={products[name].amount} readOnly />
-      <button onClick={() => dispatch(addOne({ product:name, price }))} className='count'>
-        +
-      </button>
-    </div>
-    <div className='col-price'>
-      <span className='product-price'>{price}</span>
-      <span className='product-currency currency'>{currency}</span>
-    </div>
-    <div className='col-total'>
-      <span className='product-price'>{products[name].priceTotal}</span>
-      <span className='product-currency currency'>{currency}</span>
-    </div>
-  </li>
+      <ProductDetails name={name} code={code} />
+      <Quantity name={name} price={price} productsState={productsState} />
+      <Price price={price} currency={currency} />
+      <Total name={name} currency={currency} productsState={productsState} />
+    </li>
   );
 });
 

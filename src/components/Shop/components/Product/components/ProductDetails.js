@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const ProductDetails = memo((name, code) => {
+const ProductDetails = memo(({ name, code }) => {
   const nameLower = name.toLowerCase();
   const image = require(`img/${nameLower}.png`);
 
