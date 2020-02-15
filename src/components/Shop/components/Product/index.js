@@ -1,49 +1,22 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
-import { ADD_ONE, REMOVE_ONE } from 'components/Shop/constants';
-import { actionProduct } from 'actions';
+import { useSelector } from 'react-redux';
+import ProductDetails from './components/ProductDetails';
+import Quantity from './components/Quantity';
+import Price from './components/Price';
+import Total from './components/Total';
 
 const Product = memo(({ name, code, price, currency }) => {
-  // poner descripción a funciones
-  const counter = useSelector(state => state.products);
-  const dispatch = useDispatch();
-  
-  const nameLower = name.toLowerCase();
-  const image = require(`img/${nameLower}.png`);
-  
-  const removeOne = () => dispatch(actionProduct({ type:name, actionToPerform:REMOVE_ONE, price }));
-  const addOne= () => dispatch(actionProduct({ type:name, actionToPerform:ADD_ONE, price }));
+  // TODO poner descripción a funciones
+  const productsState = useSelector(state => state.products);
 
   return (
     <li className='product row'>
-    <div className='col-product'>
-      <figure className='product-image'>
-        <img src={image} alt={name} />
-        <div className='product-description'>
-          <h1>{name}</h1>
-          <p className='product-code'>Product code {code}</p>
-        </div>
-      </figure>
-    </div>
-    <div className='col-quantity'>
-      <button onClick={() => removeOne()} className='count'>
-        -
-      </button>
-      <input type='text' className='product-quantity' value={counter[name].amount} readOnly />
-      <button onClick={() => addOne()} className='count'>
-        +
-      </button>
-    </div>
-    <div className='col-price'>
-      <span className='product-price'>{price}</span>
-      <span className='product-currency currency'>{currency}</span>
-    </div>
-    <div className='col-total'>
-      <span className='product-price'>{counter[name].priceTotal}</span>
-      <span className='product-currency currency'>{currency}</span>
-    </div>
-  </li>
+      <ProductDetails name={name} code={code} />
+      <Quantity name={name} price={price} productsState={productsState} />
+      <Price price={price} currency={currency} />
+      <Total name={name} currency={currency} productsState={productsState} />
+    </li>
   );
 });
 

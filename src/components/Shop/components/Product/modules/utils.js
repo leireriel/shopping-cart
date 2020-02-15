@@ -1,4 +1,4 @@
-import { ALL_PRODUCTS } from 'components/Shop/constants';
+import { ALL_PRODUCTS } from 'components/Shop/components/ProductsList/data';
 
 export const getAllProductNames = () => {
   let listOfNames = [];
