@@ -78,6 +78,7 @@ To consider:
 ## 💪 Challenges
 
 ...
+Each component has their own modules (actions, reducers) in order to make the app able to grow easy.
 
 ## 💡 To Do
 

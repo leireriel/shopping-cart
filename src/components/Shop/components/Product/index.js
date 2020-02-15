@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { addOne, removeOne } from 'actions';
+import { addOne, removeOne } from 'components/Shop/modules/actions';
 
 const Product = memo(({ name, code, price, currency }) => {
   // poner descripción a funciones
-  const counter = useSelector(state => state.products);
+  const products = useSelector(state => state.products);
   const dispatch = useDispatch();
   
   const nameLower = name.toLowerCase();
@@ -26,7 +26,7 @@ const Product = memo(({ name, code, price, currency }) => {
       <button onClick={() => dispatch(removeOne({ product:name, price }))} className='count'>
         -
       </button>
-      <input type='text' className='product-quantity' value={counter[name].amount} readOnly />
+      <input type='text' className='product-quantity' value={products[name].amount} readOnly />
       <button onClick={() => dispatch(addOne({ product:name, price }))} className='count'>
         +
       </button>
@@ -36,7 +36,7 @@ const Product = memo(({ name, code, price, currency }) => {
       <span className='product-currency currency'>{currency}</span>
     </div>
     <div className='col-total'>
-      <span className='product-price'>{counter[name].priceTotal}</span>
+      <span className='product-price'>{products[name].priceTotal}</span>
       <span className='product-currency currency'>{currency}</span>
     </div>
   </li>
