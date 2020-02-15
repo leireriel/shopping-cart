@@ -1,7 +1,3 @@
-// Actions to set amount of product
-export const ADD_ONE = 'ADD_ONE';
-export const REMOVE_ONE = 'REMOVE_ONE';
-
 // All products (could be response from API)
 export const ALL_PRODUCTS = [
   {
