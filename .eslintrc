@@ -1,0 +1,4 @@
+{
+  "extends": "airbnb/hooks",
+  "parser": "babel-eslint"
+}
