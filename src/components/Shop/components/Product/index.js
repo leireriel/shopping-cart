@@ -1,27 +1,17 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { addOne, removeOne } from 'components/Shop/modules/actions';
+import { addOne, removeOne } from './modules/actions';
+import ProductDetails from './components/ProductDetails';
 
 const Product = memo(({ name, code, price, currency }) => {
   // poner descripción a funciones
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
-  
-  const nameLower = name.toLowerCase();
-  const image = require(`img/${nameLower}.png`);
 
   return (
     <li className='product row'>
-    <div className='col-product'>
-      <figure className='product-image'>
-        <img src={image} alt={name} />
-        <div className='product-description'>
-          <h1>{name}</h1>
-          <p className='product-code'>Product code {code}</p>
-        </div>
-      </figure>
-    </div>
+    <ProductDetails name={name} code={code} />
     <div className='col-quantity'>
       <button onClick={() => dispatch(removeOne({ product:name, price }))} className='count'>
         -

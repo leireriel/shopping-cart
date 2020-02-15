@@ -83,6 +83,8 @@ Redux:
 * React hooks (function components with memo)
 * Redux hooks (useSelector and useDispatch)
 
+Poner proptypes y comentarios de funciones
+
 ## 💡 To Do
 
 ...

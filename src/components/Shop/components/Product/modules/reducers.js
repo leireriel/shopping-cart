@@ -1,4 +1,4 @@
-import { ADD_ONE, REMOVE_ONE } from 'components/Shop/modules/types';
+import { ADD_ONE, REMOVE_ONE } from './types';
 import { getAllProductNames, getInitialState } from './utils';
 
 const productsReducer = (state = getInitialState(), action) => {

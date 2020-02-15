@@ -1,4 +1,4 @@
-import { ADD_ONE, REMOVE_ONE } from 'components/Shop/modules/types';
+import { ADD_ONE, REMOVE_ONE } from './types';
 
 export const addOne = ({ product, price }) => ({ 
   type: ADD_ONE,
