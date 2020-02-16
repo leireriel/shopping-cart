@@ -6,8 +6,8 @@ import { addOne, removeOne } from 'components/Shop/components/Product/modules/ac
 const Quantity = memo(({ name, price, productsState }) => {
   const dispatch = useDispatch();
 
-  const handleRemoveOne = () => dispatch(removeOne({ product:name, price }));
-  const handleAddOne = () => dispatch(addOne({ product:name, price }));
+  const handleRemoveOne = () => dispatch(removeOne({ product: name, price }));
+  const handleAddOne = () => dispatch(addOne({ product: name, price }));
 
   return (
     <div className='col-quantity'>

@@ -87,6 +87,7 @@ Redux:
 DONE extras!
 * Discounts
 * Modal at level App (can be reutilizable) -sass
+* Modal es responsive, y está preparado para meter más tipos de modales muy fácilmente con redux. La imagen y los estilos no están perfectos.
 
 Poner proptypes y comentarios de funciones
 

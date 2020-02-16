@@ -1,32 +1,54 @@
+@import 'src/styles/colors';
 @import 'src/styles/breakpoints';
 
 .modal-window {
   display: flex;
   flex-direction: column;
-  background-color: #fefefe;
+  background-color: $white;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid $grey;
   border-radius: 3px;
   width: 80%;
 
-  .modal-close {
+  .icon-close {
     cursor: pointer;
     width: 20px;
     align-self: flex-end;
+    margin-bottom: 20px;
   }
 
   .modal-content {
     display: flex;
   }
 
-  .modal-image {
+  aside {
     display: flex;
     justify-content: center;
   }
 
   .image {
     width: 200px;
+  }
+
+  section {
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid $grey;
+      margin: 1em 0;
+      padding: 0;
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .code {
+    color: $grey;
   }
 
   button {
@@ -49,13 +71,13 @@
     flex-direction: column;
   }
 
-  .modal-image, .modal-text {
+  aside, section {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: $break-med) {
-  .modal-image, .modal-text {
+  aside, section {
     width: 50%;
   }
 }

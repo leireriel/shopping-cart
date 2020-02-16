@@ -14,11 +14,11 @@ const ProductDetails = memo(({ name, code, price, currency, description }) => {
     dispatch(
       modalOpen({
         modalType: 'product',
-        title: name,
+        name,
         price,
         currency,
         description,
-        footer: productCode,
+        code: productCode,
         buttonText: "Add to cart",
         imgSrc: image,
         imgAlt: name
