@@ -14,7 +14,7 @@ import Modal from 'components/Modal';
   // Y sacar las carpetas `img` y `css` de public, para ponerlas en src
 
 const App = memo(() => {
-  const modalState = useSelector(state => state.modal);
+  const modalState = useSelector(state => state.modal.open);
 
   return (
     <>

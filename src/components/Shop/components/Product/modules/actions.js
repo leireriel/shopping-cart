@@ -12,8 +12,9 @@ export const removeOne = ({ product, price }) => ({
   price
 });
 
-export const modalOpen = () => ({
-  type: MODAL_OPEN
+export const modalOpen = payload => ({
+  type: MODAL_OPEN,
+  payload
 });
 
 export const modalClose = () => ({

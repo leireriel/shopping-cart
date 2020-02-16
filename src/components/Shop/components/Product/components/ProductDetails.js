@@ -8,14 +8,30 @@ const ProductDetails = memo(({ name, code, price, currency, description }) => {
   
   const nameLower = name.toLowerCase();
   const image = require(`img/${nameLower}.png`);
+  const productCode = `Product code ${code}`;
 
   return (
-    <div className='col-product'>
-      <figure onClick={() => dispatch(modalOpen())} className='product-image'>
+    <div className="col-product">
+      <figure
+        onClick={() =>
+          dispatch(
+            modalOpen({
+              titleLeft: name,
+              titleRight: price + currency,
+              description,
+              more: productCode,
+              buttonText: "Add to cart",
+              imgSrc: image,
+              imgAlt: name
+            })
+          )
+        }
+        className="product-image"
+      >
         <img src={image} alt={name} />
-        <div className='product-description'>
+        <div className="product-description">
           <h1>{name}</h1>
-          <p className='product-code'>Product code {code}</p>
+          <p className="product-code">{productCode}</p>
         </div>
       </figure>
     </div>

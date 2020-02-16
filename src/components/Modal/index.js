@@ -2,15 +2,16 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { modalClose } from 'components/Shop/components/Product/modules/actions';
+import { useSelector } from 'react-redux';
 import 'styles/modal.scss';
 
-const Modal = memo(({ name, code, price, currency, description }) => {
+const Modal = memo(() => {
   const dispatch = useDispatch();
-  console.log('modalfr')
+  const modalState = useSelector(state => state.modal);
 
   return (
     <div className='modal-window'>
-      <p>ffdssfsfsdf</p>
+      <p>{modalState.open}</p>
       <button onClick={() => dispatch(modalClose())}>cerrar</button>
     </div>
   );
