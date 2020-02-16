@@ -12,6 +12,6 @@ Total.propTypes = {
   name: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
   productsState: PropTypes.object.isRequired
-}
+};
 
 export default Total;

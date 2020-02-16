@@ -23,6 +23,6 @@ Quantity.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   productsState: PropTypes.object.isRequired
-}
+};
 
 export default Quantity;

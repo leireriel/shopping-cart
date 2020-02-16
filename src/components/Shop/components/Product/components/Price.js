@@ -11,6 +11,6 @@ const Price = memo(({ price, currency }) => (
 Price.propTypes = {
   price: PropTypes.number.isRequired,
   currency: PropTypes.string.isRequired
-}
+};
 
 export default Price;

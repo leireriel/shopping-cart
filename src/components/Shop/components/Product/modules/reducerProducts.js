@@ -1,7 +1,7 @@
 import { ADD_ONE, REMOVE_ONE } from './types';
 import { getAllProductNames, getInitialState } from './utils';
 
-const productsReducer = (state = getInitialState(), action) => {
+const reducerProducts = (state = getInitialState(), action) => {
   const increment = () => state[action.product].amount + 1;
   const decrement = () => state[action.product].amount - 1;
 
@@ -45,4 +45,4 @@ const productsReducer = (state = getInitialState(), action) => {
   };
 };
 
-export default productsReducer;
+export default reducerProducts;
