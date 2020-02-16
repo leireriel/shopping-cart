@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import Shop from 'components/Shop';
 import Order from 'components/Order';
 import { useSelector } from 'react-redux';
-import Modal from 'components/Modal';
+import Modal from 'components/Modals';
 
   // Arreglar uso excesivo de h1, pero sin que se rompa el css (no sé si puedo hacer cambios en el css)
   // Al final, pasar la app por aquí https://validator.w3.org/

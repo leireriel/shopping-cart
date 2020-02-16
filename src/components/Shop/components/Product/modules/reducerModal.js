@@ -5,8 +5,9 @@ const reducerModal = (state = false, action) => {
     case MODAL_OPEN:
       return {
         open: true,
+        modalType: action.payload.modalType,
         copies: {
-          titleLeft: action.payload.titleLeft,
+          title: action.payload.title,
           price: action.payload.price,
           currency: action.payload.currency,
           description: action.payload.description,

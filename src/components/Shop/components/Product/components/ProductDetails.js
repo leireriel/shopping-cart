@@ -13,7 +13,8 @@ const ProductDetails = memo(({ name, code, price, currency, description }) => {
   const handleModalOpen = () => (
     dispatch(
       modalOpen({
-        titleLeft: name,
+        modalType: 'product',
+        title: name,
         price,
         currency,
         description,
