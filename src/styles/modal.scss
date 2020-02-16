@@ -1,9 +1,29 @@
+@import 'src/styles/breakpoints';
+
 .modal-window {
+  display: flex;
+  flex-direction: column;
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 3px;
+  width: 80%;
+
+  .modal-close {
+    cursor: pointer;
+    width: 20px;
+    align-self: flex-end;
+  }
+
+  .modal-content {
+    display: flex;
+  }
+
+  .image {
+    width: 200px;
+  }
+
   button {
     margin-top: 24px;
     padding-top: 16px;
@@ -16,5 +36,21 @@
     font-weight: bold;
     line-height: 14px;
     cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: $break-med) {
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .modal-image, .modal-text {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: $break-med) {
+  .modal-image, .modal-text {
+    width: 50%;
   }
 }

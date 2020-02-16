@@ -7,9 +7,10 @@ const reducerModal = (state = false, action) => {
         open: true,
         copies: {
           titleLeft: action.payload.titleLeft,
-          titleRight: action.payload.titleRight,
+          price: action.payload.price,
+          currency: action.payload.currency,
           description: action.payload.description,
-          more: action.payload.more,
+          footer: action.payload.footer,
           buttonText: action.payload.buttonText,
           imgSrc: action.payload.imgSrc,
           imgAlt: action.payload.imgAlt
