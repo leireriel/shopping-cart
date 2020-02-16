@@ -15,7 +15,11 @@ export const getInitialState = () => {
   let state = {};
 
   for (const name of getAllProductNames()) {
-    state[name] = {amount: 0, priceTotal: 0};
+    state[name] = {
+      amount: 0,
+      priceTotal: 0,
+      discount: 0
+    };
   }
 
   return state;

@@ -81,7 +81,7 @@ To consider:
 ...
 Redux:
 * Each component has their own modules (actions, reducers) in order to make the app able to grow easy.
-* React hooks (function components with memo, useState)
+* React hooks (function components with memo, useEffect)
 * Redux hooks (useSelector and useDispatch)
 
 DONE extras!
