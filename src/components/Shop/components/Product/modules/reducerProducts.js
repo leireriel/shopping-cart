@@ -1,6 +1,11 @@
 import { ADD_ONE, REMOVE_ONE } from './types';
-import { getAllProductNames, getInitialState, calculatePrice, calculateDiscount } from './utils';
-import { SHIRT_OFFER, MUG_OFFER } from './constants';
+import {
+  getAllProductNames,
+  getInitialState,
+  calculatePrice,
+  calculateDiscount,
+  getDiscountCopies
+} from './utils';
 
 const reducerProducts = (state = getInitialState(), action) => {
   let newAmount;
@@ -27,6 +32,7 @@ const reducerProducts = (state = getInitialState(), action) => {
     }
   });
 
+  // sacar estas funciones? TODO
   const increment = () => state[action.product].amount + 1;
   const decrement = () => state[action.product].amount - 1;
 
@@ -37,10 +43,11 @@ const reducerProducts = (state = getInitialState(), action) => {
   const isAProductToAdd = () => {
     if (isAValidProduct()) {
       newAmount = increment();
+      // TODO: abajo funcion
       newPrice = calculatePrice(newAmount, action.price);
       newDiscount = calculateDiscount(newAmount, newPrice, action.product, action.price);
       if (newDiscount > 0) {
-        discountCopies = 'a';
+        discountCopies = getDiscountCopies(action.product);
         return setNewStateWithDiscount(newAmount, newPrice, newDiscount, discountCopies);
       } else {
         return setNewState(newAmount, newPrice, newDiscount);
@@ -52,10 +59,11 @@ const reducerProducts = (state = getInitialState(), action) => {
   const isAProductToRemove = () => {
     if (isAValidProduct() && canDecrement()) {
       newAmount = decrement();
+      // TODO: abajo funcion
       newPrice = calculatePrice(newAmount, action.price);
       newDiscount = calculateDiscount(newAmount, newPrice, action.product, action.price);
       if (newDiscount > 0) {
-        discountCopies = 'a';
+        discountCopies = getDiscountCopies(action.product);
         return setNewStateWithDiscount(newAmount, newPrice, newDiscount, discountCopies);
       } else {
         return setNewState(newAmount, newPrice, newDiscount);

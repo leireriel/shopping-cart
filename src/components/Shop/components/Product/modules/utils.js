@@ -1,6 +1,12 @@
 import { ALL_PRODUCTS } from 'components/Shop/components/ProductsList/data';
-import { FIVE_PERCENT } from './constants';
+import {
+  FIVE_PERCENT,
+  SHIRT_OFFER,
+  MUG_OFFER,
+  GENERIC_OFFER
+} from './constants';
 
+// TODO poner nombres
 export const getAllProductNames = () => {
   let listOfNames = [];
 
@@ -11,7 +17,7 @@ export const getAllProductNames = () => {
   return listOfNames;
 };
 
-// TODO: I create the initial state dinamically and the product names, in order to make the app able to grow easy :)
+// TODO I create the initial state dinamically and the product names, in order to make the app able to grow easy :)
 export const getInitialState = () => {
   let state = {};
 
@@ -48,3 +54,17 @@ export const calculateDiscount = (amount, price, product, priceUnit) => {
   
   return discount;
 };
+
+export const getDiscountCopies = product => {
+  let copy;
+
+  if (product === 'Shirt') {
+    copy = SHIRT_OFFER;
+  } else if (product === 'Mug') {
+    copy = MUG_OFFER;
+  } else {
+    copy = GENERIC_OFFER;
+  }
+  
+  return copy;
+}
