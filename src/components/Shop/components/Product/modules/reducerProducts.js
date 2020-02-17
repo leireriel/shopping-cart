@@ -1,7 +1,10 @@
 import { ADD_ONE, REMOVE_ONE } from './types';
 import {
-  getAllProductNames,
+  isAValidProduct,
   getInitialState,
+  canDecrement,
+  increment,
+  decrement,
   calculatePrice,
   calculateDiscount,
   getDiscountCopies
@@ -13,6 +16,15 @@ const reducerProducts = (state = getInitialState(), action) => {
   let newDiscount;
   let discountCopies;
 
+    /**
+   * @name setNewStateWithDiscount
+   * Sets new state of current product with discount
+   * @param {number} newAmount
+   * @param {number} newPrice
+   * @param {number} newDiscount
+   * @param {string} discountCopies
+   * @returns {Object} State
+   */
   const setNewStateWithDiscount = (newAmount, newPrice, newDiscount, discountCopies) => ({
     ...state,
     [action.product]: {
@@ -23,6 +35,15 @@ const reducerProducts = (state = getInitialState(), action) => {
     }
   });
 
+
+  /**
+   * @name setNewState
+   * Sets new state of current product
+   * @param {number} newAmount
+   * @param {number} newPrice
+   * @param {number} newDiscount
+   * @returns {Object} State
+   */
   const setNewState = (newAmount, newPrice, newDiscount) => ({
     ...state,
     [action.product]: {
@@ -31,6 +52,7 @@ const reducerProducts = (state = getInitialState(), action) => {
       discount: newDiscount
     }
   });
+
 
   /**
    * @name calculateValuesAndSetState
@@ -48,24 +70,6 @@ const reducerProducts = (state = getInitialState(), action) => {
       return setNewState(newAmount, newPrice, newDiscount);
     }
   };
-  
-  const increment = () => state[action.product].amount + 1;
-  const decrement = () => state[action.product].amount - 1;
-
-  /**
-   * @name canDecrement
-   * Checks if the current amount of items is bigger than 0
-   * @returns {boolean}
-   */
-  const canDecrement = () => state[action.product].amount > 0;
-
-
-  /**
-   * @name isAValidProduct
-   * Gets the names of all the products in the cart and compares if the name raised by the reducer matches any
-   * @returns {string} Name of product
-   */
-  const isAValidProduct = () => getAllProductNames().find((name) => name === action.product);
 
 
   /**
@@ -74,8 +78,8 @@ const reducerProducts = (state = getInitialState(), action) => {
    * @returns {Object} State
    */
   const isAProductToAdd = () => {
-    if (isAValidProduct()) {
-      newAmount = increment();
+    if (isAValidProduct(action.product)) {
+      newAmount = increment(state, action.product);
       return calculateValuesAndSetState(newAmount);
     }
     return state;
@@ -88,8 +92,8 @@ const reducerProducts = (state = getInitialState(), action) => {
    * @returns {Object} State
    */
   const isAProductToRemove = () => {
-    if (isAValidProduct() && canDecrement()) {
-      newAmount = decrement();
+    if (isAValidProduct(action.product) && canDecrement(state, action.product)) {
+      newAmount = decrement(state, action.product);
       return calculateValuesAndSetState(newAmount);
     }
     return state;
