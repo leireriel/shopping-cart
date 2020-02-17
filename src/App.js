@@ -18,15 +18,15 @@ const App = memo(() => {
 
   return (
     <>
-    {modalState ? (
-      <Modal />
-    ) : (
-      <main className="App">
-        <Shop />
-        <Order />
-      </main>
-    )}
-  </>
+      {modalState ? (
+        <Modal />
+      ) : (
+        <main className='App'>
+          <Shop />
+          <Order />
+        </main>
+      )}
+    </>
   )
 });
 
