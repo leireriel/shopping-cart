@@ -1,28 +1,17 @@
-import React, { memo, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getOrderDetails } from 'components/Order/utils';
+import React, { memo } from 'react';
 
-const OrderSummary = memo(() => {
-  const products = useSelector(state => state.products);
-  const arrOfProducts = Object.entries(products);
+// TODO el € lo cogería de una variable de entorno de mercado (por país)
 
-  const [orderDetails, setOrderDetails] = useState({});
-
-  useEffect(() => {
-    setOrderDetails(getOrderDetails(arrOfProducts));
-  });
-
-  return (
-    <ul className='summary-items wrapper border'>
-      <li>
-        <span className='summary-items-number'>{orderDetails?.numberOfItems} Items</span>
-        <span className='summary-items-price'>
-          {orderDetails?.priceTotal}
-          <span className='currency'>€</span>
-        </span>
-      </li>
-    </ul>
-  );
-});
+const OrderSummary = memo(({ orderDetails }) => (
+  <ul className='summary-items wrapper border'>
+    <li>
+      <span className='summary-items-number'>{orderDetails?.numberOfItems} Items</span>
+      <span className='summary-items-price'>
+        {orderDetails?.priceTotal}
+        <span className='currency'>€</span>
+      </span>
+    </li>
+  </ul>
+));
 
 export default OrderSummary;
