@@ -68,6 +68,7 @@ Also I installed:
 * [prop-types](https://www.npmjs.com/package/prop-types)
 * [redux](https://www.npmjs.com/package/redux)
 * [react-redux](https://www.npmjs.com/package/react-redux)
+* [sass](https://www.npmjs.com/package/sass) for the modal
 
 And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
@@ -80,8 +81,14 @@ To consider:
 ...
 Redux:
 * Each component has their own modules (actions, reducers) in order to make the app able to grow easy.
-* React hooks (function components with memo)
-* Redux hooks (useSelector and useDispatch)
+* React hooks (function components with memo, useEffect, useRef)
+* Redux hooks (useSelector and useDispatch). Los estados principales están con redux.
+
+DONE extras!
+* Discounts
+* Modal at level App (can be reutilizable) -sass
+* Modal es responsive, y está preparado para meter más tipos de modales muy fácilmente con redux. La imagen y los estilos no están perfectos.
+* El css original no lo he tocado, pero añadido variables con sass. Lo ideal sería unificar.
 
 Poner proptypes y comentarios de funciones
 

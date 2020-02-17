@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
 
-const OrderTotal = memo(() => (
+// TODO el € lo cogería de una variable de entorno de mercado (por país)
+
+const OrderTotal = memo(({ orderDetails }) => (
   <div className='summary-total wrapper'>
     <ul>
       <li>
         <span className='summary-total-cost'>Total cost</span>
-        <span className='summary-total-price'>107€</span>
+        <span className='summary-total-price'>{orderDetails?.discountTotal}€</span>
       </li>
     </ul>
     <button type='submit'>Checkout</button>

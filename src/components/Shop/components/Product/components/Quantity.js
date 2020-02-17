@@ -6,16 +6,19 @@ import { addOne, removeOne } from 'components/Shop/components/Product/modules/ac
 const Quantity = memo(({ name, price, productsState }) => {
   const dispatch = useDispatch();
 
+  const handleRemoveOne = () => dispatch(removeOne({ product: name, price }));
+  const handleAddOne = () => dispatch(addOne({ product: name, price }));
+
   return (
-  <div className='col-quantity'>
-    <button onClick={() => dispatch(removeOne({ product:name, price }))} className='count'>
-      -
-    </button>
-    <input type='text' className='product-quantity' value={productsState[name].amount} readOnly />
-    <button onClick={() => dispatch(addOne({ product:name, price }))} className='count'>
-      +
-    </button>
-  </div>
+    <div className='col-quantity'>
+      <button onClick={handleRemoveOne} className='count'>
+        -
+      </button>
+      <input type='text' className='product-quantity' value={productsState[name].amount} readOnly />
+      <button onClick={handleAddOne} className='count'>
+        +
+      </button>
+    </div>
   );
 });
 
@@ -23,6 +26,6 @@ Quantity.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   productsState: PropTypes.object.isRequired
-}
+};
 
 export default Quantity;

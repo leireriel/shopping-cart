@@ -1,0 +1,88 @@
+@import 'src/styles/colors';
+@import 'src/styles/breakpoints';
+
+.modal-window {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid $grey;
+  border-radius: 3px;
+  width: 80%;
+
+  .icon-close {
+    cursor: pointer;
+    width: 20px;
+    align-self: flex-end;
+    margin-bottom: 20px;
+  }
+
+  .modal-content {
+    display: flex;
+  }
+
+  aside {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image {
+    width: 200px;
+  }
+
+  section {
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid $grey;
+      margin: 1em 0;
+      padding: 0;
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .code {
+    color: $grey;
+  }
+
+  button {
+    margin-top: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $purple;
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 14px;
+    cursor: pointer;
+
+    &:active {
+      background-color: $purple-light;
+      transition: background-color 0.2s;
+    }
+  }
+}
+
+@media only screen and (max-width: $break-med) {
+  .modal-content {
+    flex-direction: column;
+  }
+
+  aside, section {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: $break-med) {
+  aside, section {
+    width: 50%;
+  }
+}
