@@ -7,22 +7,27 @@ const OrderDiscounts = memo(() => {
   const discountShirt = useSelector(state => state.products.Shirt.discount);
   const discountMug = useSelector(state => state.products.Mug.discount);
   
+  var shortid = require('shortid');
+
   const renderDiscount = (copies, amount) => (
-    <li key='0'>
+    <li key={shortid.generate()}>
       <span>{copies}</span>
       <span>-{amount}€</span>
     </li>
   );
 
   return (
-    <div className='summary-discounts wrapper-half border'>
-      <h2>Discounts</h2>
-      <ul>
-        {discountCopiesShirt && renderDiscount(discountCopiesShirt, discountShirt)}
-        {discountCopiesMug && renderDiscount(discountCopiesMug, discountMug)}
-        <li><span>Promo code</span><span>0€</span></li>
-      </ul>
-    </div>
+    <>
+      {(discountCopiesShirt || discountCopiesMug) && (
+        <div className='summary-discounts wrapper-half border'>
+          <h2>Discounts</h2>
+          <ul>
+            {discountCopiesShirt && renderDiscount(discountCopiesShirt, discountShirt)}
+            {discountCopiesMug && renderDiscount(discountCopiesMug, discountMug)}
+          </ul>
+        </div>
+      )}
+    </>
   );
 });
 

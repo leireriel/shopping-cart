@@ -69,6 +69,7 @@ Also I installed:
 * [redux](https://www.npmjs.com/package/redux)
 * [react-redux](https://www.npmjs.com/package/react-redux)
 * [sass](https://www.npmjs.com/package/sass) for the modal
+* [shortid](https://www.npmjs.com/package/shortid) to get keys to render a list
 
 And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
