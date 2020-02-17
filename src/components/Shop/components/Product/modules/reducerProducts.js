@@ -32,13 +32,6 @@ const reducerProducts = (state = getInitialState(), action) => {
     }
   });
 
-  const increment = () => state[action.product].amount + 1;
-  const decrement = () => state[action.product].amount - 1;
-
-  const canDecrement = () => state[action.product].amount > 0;
-
-  const isAValidProduct = () => getAllProductNames().find((name) => name === action.product);
-
   const calculateValuesAndSetState = newAmount => {
     newPrice = calculatePrice(newAmount, action.price);
     newDiscount = calculateDiscount(newAmount, newPrice, action.product, action.price);
@@ -49,6 +42,13 @@ const reducerProducts = (state = getInitialState(), action) => {
       return setNewState(newAmount, newPrice, newDiscount);
     }
   };
+  
+  const increment = () => state[action.product].amount + 1;
+  const decrement = () => state[action.product].amount - 1;
+
+  const canDecrement = () => state[action.product].amount > 0;
+
+  const isAValidProduct = () => getAllProductNames().find((name) => name === action.product);
 
   const isAProductToAdd = () => {
     if (isAValidProduct()) {
