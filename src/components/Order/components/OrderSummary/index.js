@@ -2,7 +2,10 @@ import React, { memo } from 'react';
 
 // TODO el € lo cogería de una variable de entorno de mercado (por país)
 
-const OrderSummary = memo(({ orderDetails }) => (
+const OrderSummary = memo(({ orderDetails }) => {
+  console.log(orderDetails);
+  
+  return (
   <ul className='summary-items wrapper border'>
     <li>
       <span className='summary-items-number'>{orderDetails?.numberOfItems} Items</span>
@@ -12,6 +15,7 @@ const OrderSummary = memo(({ orderDetails }) => (
       </span>
     </li>
   </ul>
-));
+  );
+});
 
 export default OrderSummary;
