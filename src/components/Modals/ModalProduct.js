@@ -16,9 +16,9 @@ const ModalProduct = memo(() => {
     <div className='modal-window'>
       <img
         onClick={handleModalClose}
-        className="icon-close"
+        className='icon-close'
         src={IconClose}
-        alt="Close modal"
+        alt='Close modal'
       />
       <div className='modal-content'>
         <aside>

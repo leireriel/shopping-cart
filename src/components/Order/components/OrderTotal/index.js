@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 /*
-In a production development, I would take the currency (in this case, "€")
+In a production development, I would take the currency (in this case, '€')
 from a market environment variable set by country
 */
 

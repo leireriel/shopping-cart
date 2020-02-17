@@ -19,7 +19,7 @@ const ProductDetails = memo(({ name, code, price, currency, description }) => {
         currency,
         description,
         code: productCode,
-        buttonText: "Add to cart",
+        buttonText: 'Add to cart',
         imgSrc: image,
         imgAlt: name
       })
@@ -27,12 +27,12 @@ const ProductDetails = memo(({ name, code, price, currency, description }) => {
   );
 
   return (
-    <div className="col-product">
-      <figure onClick={handleModalOpen} className="product-image">
+    <div className='col-product'>
+      <figure onClick={handleModalOpen} className='product-image'>
         <img src={image} alt={name} />
-        <div className="product-description">
+        <div className='product-description'>
           <h1>{name}</h1>
-          <p className="product-code">{productCode}</p>
+          <p className='product-code'>{productCode}</p>
         </div>
       </figure>
     </div>

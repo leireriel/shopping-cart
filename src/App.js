@@ -12,7 +12,7 @@ const App = memo(() => {
     {modalState ? (
       <Modal />
     ) : (
-      <main className="App">
+      <main className='App'>
         <Shop />
         <Order />
       </main>
