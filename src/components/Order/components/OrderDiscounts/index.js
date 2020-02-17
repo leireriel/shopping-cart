@@ -15,9 +15,11 @@ const OrderDiscounts = memo(() => {
   var shortid = require('shortid');
 
   /**
+   * @name renderDiscount
    * Renders product and its discount
-   * @param {string} copies 
-   * @param {number} amount 
+   * @param {string} copies
+   * @param {number} amount
+   * @returns {JSX}
    */
   const renderDiscount = (copies, amount) => (
     <li key={shortid.generate()}>

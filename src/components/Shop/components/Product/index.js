@@ -7,7 +7,6 @@ import Price from './components/Price';
 import Total from './components/Total';
 
 const Product = memo(({ name, code, price, currency, description }) => {
-  // TODO poner descripción a funciones
   const productsState = useSelector(state => state.products);
 
   return (

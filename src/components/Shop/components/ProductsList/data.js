@@ -1,4 +1,4 @@
-// All products (could be response from API)
+// All products (could be a response from an API)
 export const ALL_PRODUCTS = [
   {
     name: 'Shirt',
