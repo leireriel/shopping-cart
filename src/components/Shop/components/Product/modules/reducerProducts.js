@@ -1,6 +1,5 @@
-import { getAllProductNames, getInitialState } from './utils';
 import { ADD_ONE, REMOVE_ONE } from './types';
-import { SHIRT_DISCOUNT } from './constants';
+import { getAllProductNames, getInitialState, fivePercent, twoForOne } from './utils';
 
 const reducerProducts = (state = getInitialState(), action) => {
   let newAmount;
@@ -20,10 +19,9 @@ const reducerProducts = (state = getInitialState(), action) => {
     let discount;
   
     if (action.product === 'Shirt' && amount >= 3) {
-      discount = price * SHIRT_DISCOUNT;
+      discount = fivePercent(price);
     } else if (action.product === 'Mug') {
-      const integerPartOfAmount = Math.trunc(amount / 2);
-      discount = integerPartOfAmount * action.price;
+      discount = twoForOne(amount, action.price);
     } else {
       discount = 0;
     }

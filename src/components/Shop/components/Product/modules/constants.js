@@ -1,1 +1,2 @@
-export const SHIRT_DISCOUNT = 5/100;
+// Discounts
+export const FIVE_PERCENT = 5/100;
