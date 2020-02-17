@@ -7,7 +7,7 @@ const OrderTotal = memo(({ orderDetails }) => (
     <ul>
       <li>
         <span className='summary-total-cost'>Total cost</span>
-        <span className='summary-total-price'>{orderDetails?.discountTotal}€</span>
+        <span className='summary-total-price'>{orderDetails?.priceTotal - orderDetails?.discountTotal}€</span>
       </li>
     </ul>
     <button type='submit'>Checkout</button>
