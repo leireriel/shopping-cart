@@ -67,4 +67,4 @@ export const getDiscountCopies = product => {
   }
   
   return copy;
-}
+};

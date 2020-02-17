@@ -32,7 +32,6 @@ const reducerProducts = (state = getInitialState(), action) => {
     }
   });
 
-  // sacar estas funciones? TODO
   const increment = () => state[action.product].amount + 1;
   const decrement = () => state[action.product].amount - 1;
 
@@ -40,18 +39,21 @@ const reducerProducts = (state = getInitialState(), action) => {
 
   const isAValidProduct = () => getAllProductNames().find((name) => name === action.product);
 
+  const calculateValuesAndSetState = newAmount => {
+    newPrice = calculatePrice(newAmount, action.price);
+    newDiscount = calculateDiscount(newAmount, newPrice, action.product, action.price);
+    if (newDiscount > 0) {
+      discountCopies = getDiscountCopies(action.product);
+      return setNewStateWithDiscount(newAmount, newPrice, newDiscount, discountCopies);
+    } else {
+      return setNewState(newAmount, newPrice, newDiscount);
+    }
+  };
+
   const isAProductToAdd = () => {
     if (isAValidProduct()) {
       newAmount = increment();
-      // TODO: abajo funcion
-      newPrice = calculatePrice(newAmount, action.price);
-      newDiscount = calculateDiscount(newAmount, newPrice, action.product, action.price);
-      if (newDiscount > 0) {
-        discountCopies = getDiscountCopies(action.product);
-        return setNewStateWithDiscount(newAmount, newPrice, newDiscount, discountCopies);
-      } else {
-        return setNewState(newAmount, newPrice, newDiscount);
-      }
+      calculateValuesAndSetState(newAmount);
     }
     return state;
   };
@@ -59,15 +61,7 @@ const reducerProducts = (state = getInitialState(), action) => {
   const isAProductToRemove = () => {
     if (isAValidProduct() && canDecrement()) {
       newAmount = decrement();
-      // TODO: abajo funcion
-      newPrice = calculatePrice(newAmount, action.price);
-      newDiscount = calculateDiscount(newAmount, newPrice, action.product, action.price);
-      if (newDiscount > 0) {
-        discountCopies = getDiscountCopies(action.product);
-        return setNewStateWithDiscount(newAmount, newPrice, newDiscount, discountCopies);
-      } else {
-        return setNewState(newAmount, newPrice, newDiscount);
-      }
+      calculateValuesAndSetState(newAmount);
     }
     return state;
   };
