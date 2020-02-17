@@ -24,9 +24,9 @@ const Order = memo(() => {
   return (
     <aside className='summary'>
       <Title text='Order Summary' />
-      <OrderSummary orderDetails={orderDetails} />
+      <OrderSummary {...orderDetails} />
       <OrderDiscounts />
-      <OrderTotal orderDetails={orderDetails} />
+      <OrderTotal {...orderDetails} />
     </aside>
   );
 });
