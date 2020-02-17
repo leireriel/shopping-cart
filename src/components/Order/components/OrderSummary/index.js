@@ -4,7 +4,7 @@ import React, { memo } from 'react';
 
 const OrderSummary = memo(({ orderDetails }) => {
   console.log(orderDetails);
-  
+
   return (
   <ul className='summary-items wrapper border'>
     <li>
