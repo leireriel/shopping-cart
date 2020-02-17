@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
 // TODO el € lo cogería de una variable de entorno de mercado (por país)
 
@@ -13,5 +14,10 @@ const OrderTotal = memo(({ priceTotal, discountTotal }) => (
     <button type='submit'>Checkout</button>
   </div>
 ));
+
+OrderTotal.propTypes = {
+  priceTotal: PropTypes.number.isRequired,
+  discountTotal: PropTypes.number.isRequired
+};
 
 export default OrderTotal;

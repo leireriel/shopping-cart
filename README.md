@@ -92,6 +92,8 @@ DONE extras!
 
 Poner proptypes y comentarios de funciones
 
+modal responsive
+
 ## 💡 To Do
 
 ...
