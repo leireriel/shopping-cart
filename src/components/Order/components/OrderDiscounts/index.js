@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-
 const OrderDiscounts = memo(() => {
   const products = useSelector(state => state.products);
   const arrOfProducts = Object.entries(products);
@@ -10,14 +9,30 @@ const OrderDiscounts = memo(() => {
 
   for (const product of arrOfProducts) {
     const nameAndDiscount = [];
-    const name = product[0];
-    const discount = product[1].discount;
 
-    nameAndDiscount.push(name, discount);
-    discountsPerProduct.push(nameAndDiscount);
+    if (product[1].discount > 0) {
+      const name = product[0];
+      const discount = product[1].discount;
+  
+      nameAndDiscount.push(name, discount);
+      discountsPerProduct.push(nameAndDiscount);
+    }
   };
 
   console.log(discountsPerProduct);
+
+  for (const discount of discountsPerProduct) {
+    const name = discount[0];
+    console.log(name);
+    
+    const discountState = useSelector(state => state.products[name]);
+    return (
+      <>
+        <span>{name}</span>
+        <span>{discountState}</span>
+      </>
+    );
+  };
 
   return (
     <div className='summary-discounts wrapper-half border'>
