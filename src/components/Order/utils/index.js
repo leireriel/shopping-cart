@@ -1,3 +1,15 @@
-// Discounts
-export const DISCOUNT_SHIRT = 'DISCOUNT_SHIRT';
-export const DISCOUNT_MUG = 'DISCOUNT_MUG';
+export const getOrderDetails = arrOfProducts => {
+  let order = {
+    numberOfItems: 0,
+    priceTotal: 0,
+    discountTotal: 0
+  };
+
+  for (const product of arrOfProducts) {
+    order.numberOfItems += product[1].amount;
+    order.priceTotal += product[1].priceTotal;
+    order.discountTotal += product[1].discount;
+  }
+
+  return order;
+};
