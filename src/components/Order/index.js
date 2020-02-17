@@ -12,9 +12,12 @@ const Order = memo(() => {
 
   const [orderDetails, setOrderDetails] = useState({});
 
-  useEffect(() => {
-    setOrderDetails(getOrderDetails(arrOfProducts));
-  });
+  useEffect(
+    () => {
+      setOrderDetails(getOrderDetails(arrOfProducts));
+    },
+    [arrOfProducts],
+  );
 
   return (
     <aside className='summary'>
