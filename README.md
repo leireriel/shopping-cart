@@ -69,6 +69,7 @@ Also I installed:
 * [redux](https://www.npmjs.com/package/redux)
 * [react-redux](https://www.npmjs.com/package/react-redux)
 * [sass](https://www.npmjs.com/package/sass) for the modal
+* [shortid](https://www.npmjs.com/package/shortid) to get keys to render a list
 
 And this Babel plugin:
 * [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
@@ -91,6 +92,17 @@ DONE extras!
 * El css original no lo he tocado, pero añadido variables con sass. Lo ideal sería unificar.
 
 Poner proptypes y comentarios de funciones
+
+modal responsive y puedes añadir. sería igual de facil poder quitar o mostrar el total de productos del carrito para ese producto.
+
+/*
+This component imports an array with all products (that could be a response from an API).
+Then it renders every product which will have its own reducer dinamically associated.
+In order to implement the service, I would create a `service.js` file.
+For this exercise, I have created a `data.js` with an array that contains 3 products.
+The app is ready to receive an array with a lot of products, it is very easy to grow!
+Just like the reducer associated is. You can grow the array an see it :)
+*/
 
 ## 💡 To Do
 

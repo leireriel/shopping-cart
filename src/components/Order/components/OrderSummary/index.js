@@ -1,6 +1,10 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
-// TODO el € lo cogería de una variable de entorno de mercado (por país)
+/*
+In a production development, I would take the currency (in this case, "€")
+from a market environment variable set by country
+*/
 
 const OrderSummary = memo(({ numberOfItems, priceTotal }) => (
   <ul className='summary-items wrapper border'>
@@ -13,5 +17,10 @@ const OrderSummary = memo(({ numberOfItems, priceTotal }) => (
     </li>
   </ul>
 ));
+
+OrderSummary.propTypes = {
+  numberOfItems: PropTypes.number.isRequired,
+  priceTotal: PropTypes.number.isRequired
+};
 
 export default OrderSummary;

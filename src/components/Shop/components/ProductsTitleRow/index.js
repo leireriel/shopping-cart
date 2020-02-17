@@ -11,6 +11,4 @@ const ProductsTitleRow = memo(() => (
   </ul>
 ));
 
-// Poner textos por defecto
-
 export default ProductsTitleRow;
