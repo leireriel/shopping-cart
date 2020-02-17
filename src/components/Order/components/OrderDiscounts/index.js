@@ -1,6 +1,11 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
+/*
+In a production development, I would take the currency (in this case, "€")
+from a market environment variable set by country
+*/
+
 const OrderDiscounts = memo(() => {
   const discountCopiesShirt = useSelector(state => state.products.Shirt?.discountCopies);
   const discountCopiesMug = useSelector(state => state.products.Mug?.discountCopies);
@@ -9,6 +14,11 @@ const OrderDiscounts = memo(() => {
   
   var shortid = require('shortid');
 
+  /**
+   * Renders product and its discount
+   * @param {string} copies 
+   * @param {number} amount 
+   */
   const renderDiscount = (copies, amount) => (
     <li key={shortid.generate()}>
       <span>{copies}</span>
