@@ -26,9 +26,25 @@ export const getInitialState = () => {
   return state;
 };
 
-export const fivePercent = price => price * FIVE_PERCENT;
+const _fivePercent = price => price * FIVE_PERCENT;
 
-export const twoForOne = (amount, priceUnit) => {
+const _twoForOne = (amount, priceUnit) => {
   const integerPartOfAmount = Math.trunc(amount / 2);
   return integerPartOfAmount * priceUnit;
+};
+
+export const calculatePrice = (amount, priceUnit) => amount * priceUnit;
+
+export const calculateDiscount = (amount, price, product, priceUnit) => {
+  let discount;
+  
+  if (product === 'Shirt' && amount >= 3) {
+    discount = _fivePercent(price);
+  } else if (product === 'Mug') {
+    discount = _twoForOne(amount, priceUnit);
+  } else {
+    discount = 0;
+  }
+  
+  return discount;
 };
