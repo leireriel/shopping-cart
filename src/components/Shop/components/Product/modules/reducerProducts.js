@@ -53,7 +53,7 @@ const reducerProducts = (state = getInitialState(), action) => {
   const isAProductToAdd = () => {
     if (isAValidProduct()) {
       newAmount = increment();
-      calculateValuesAndSetState(newAmount);
+      return calculateValuesAndSetState(newAmount);
     }
     return state;
   };
@@ -61,7 +61,7 @@ const reducerProducts = (state = getInitialState(), action) => {
   const isAProductToRemove = () => {
     if (isAValidProduct() && canDecrement()) {
       newAmount = decrement();
-      calculateValuesAndSetState(newAmount);
+      return calculateValuesAndSetState(newAmount);
     }
     return state;
   };
