@@ -11,5 +11,6 @@ export const getOrderDetails = arrOfProducts => {
     order.discountTotal += product[1].discount;
   }
 
+  console.log(order);
   return order;
 };

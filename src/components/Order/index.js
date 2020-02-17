@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { getOrderDetails } from 'components/Order/utils';
 import Title from 'components/Title';
@@ -10,11 +10,11 @@ const Order = memo(() => {
   const products = useSelector(state => state.products);
   const arrOfProducts = Object.entries(products);
 
-  const [orderDetails, setOrderDetails] = useState({});
+  let orderDetails = useRef({});
 
   useEffect(
     () => {
-      setOrderDetails(getOrderDetails(arrOfProducts));
+      orderDetails.current = getOrderDetails(arrOfProducts);
     },
     [arrOfProducts],
   );
