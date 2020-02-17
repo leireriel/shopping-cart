@@ -5,7 +5,7 @@ const OrderDiscounts = memo(() => {
   const products = useSelector(state => state.products);
   const arrOfProducts = Object.entries(products);
 
-  let discountsPerProduct = [];
+  let allDiscounts = [];
 
   for (const product of arrOfProducts) {
     const nameAndDiscount = [];
@@ -15,31 +15,34 @@ const OrderDiscounts = memo(() => {
       const discount = product[1].discount;
   
       nameAndDiscount.push(name, discount);
-      discountsPerProduct.push(nameAndDiscount);
+      allDiscounts.push(nameAndDiscount);
     }
   };
 
-  console.log(discountsPerProduct);
+  console.log(allDiscounts);
 
-  for (const discount of discountsPerProduct) {
+  let renderAllDiscounts = [];
+
+  for (const discount of allDiscounts) {
     const name = discount[0];
-    console.log(name);
+    const amount = discount[1];
+    const discountCopies = useSelector(state => state.products[name].discountCopies);
     
-    const discountState = useSelector(state => state.products[name]);
-    return (
-      <>
-        <span>{name}</span>
-        <span>{discountState}</span>
-      </>
+    renderAllDiscounts.push(
+      <li key='vuelta'>
+        <span>{discountCopies}</span>
+        <span>-{amount}€</span>
+      </li>
     );
   };
-
+  
+  
+  
   return (
     <div className='summary-discounts wrapper-half border'>
       <h2>Discounts</h2>
       <ul>
-        <li><span>2x1 Mug offer</span><span>-10€</span></li>
-        <li><span>x3 Shirt offer</span><span>-3€</span></li>
+        {renderAllDiscounts}
         <li><span>Promo code</span><span>0€</span></li>
       </ul>
     </div>
