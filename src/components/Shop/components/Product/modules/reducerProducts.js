@@ -1,10 +1,27 @@
 import { ADD_ONE, REMOVE_ONE } from './types';
-import { getAllProductNames, getInitialState, fivePercent, twoForOne } from './utils';
+import {
+  getAllProductNames,
+  getInitialState,
+  calculatePrice,
+  calculateDiscount,
+  getDiscountCopies
+} from './utils';
 
 const reducerProducts = (state = getInitialState(), action) => {
   let newAmount;
   let newPrice;
   let newDiscount;
+  let discountCopies;
+
+  const setNewStateWithDiscount = (newAmount, newPrice, newDiscount, discountCopies) => ({
+    ...state,
+    [action.product]: {
+      amount: newAmount,
+      priceTotal: newPrice,
+      discount: newDiscount,
+      discountCopies
+    }
+  });
 
   const setNewState = (newAmount, newPrice, newDiscount) => ({
     ...state,
@@ -14,23 +31,18 @@ const reducerProducts = (state = getInitialState(), action) => {
       discount: newDiscount
     }
   });
-  
-  const calculateDiscount = (amount, price) => {
-    let discount;
-  
-    if (action.product === 'Shirt' && amount >= 3) {
-      discount = fivePercent(price);
-    } else if (action.product === 'Mug') {
-      discount = twoForOne(amount, action.price);
+
+  const calculateValuesAndSetState = newAmount => {
+    newPrice = calculatePrice(newAmount, action.price);
+    newDiscount = calculateDiscount(newAmount, newPrice, action.product, action.price);
+    if (newDiscount > 0) {
+      discountCopies = getDiscountCopies(action.product);
+      return setNewStateWithDiscount(newAmount, newPrice, newDiscount, discountCopies);
     } else {
-      discount = 0;
+      return setNewState(newAmount, newPrice, newDiscount);
     }
-  
-    return discount;
   };
-
-  const calculatePrice = amount => amount * action.price;
-
+  
   const increment = () => state[action.product].amount + 1;
   const decrement = () => state[action.product].amount - 1;
 
@@ -41,9 +53,7 @@ const reducerProducts = (state = getInitialState(), action) => {
   const isAProductToAdd = () => {
     if (isAValidProduct()) {
       newAmount = increment();
-      newPrice = calculatePrice(newAmount);
-      newDiscount = calculateDiscount(newAmount, newPrice);
-      return setNewState(newAmount, newPrice, newDiscount);
+      return calculateValuesAndSetState(newAmount);
     }
     return state;
   };
@@ -51,9 +61,7 @@ const reducerProducts = (state = getInitialState(), action) => {
   const isAProductToRemove = () => {
     if (isAValidProduct() && canDecrement()) {
       newAmount = decrement();
-      newPrice = calculatePrice(newAmount);
-      newDiscount = calculateDiscount(newAmount, newPrice);
-      return setNewState(newAmount, newPrice, newDiscount);
+      return calculateValuesAndSetState(newAmount);
     }
     return state;
   };
