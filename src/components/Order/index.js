@@ -10,13 +10,7 @@ const Order = memo(() => {
   const products = useSelector(state => state.products);
   const arrOfProducts = Object.entries(products);
 
-  let order = {
-    numberOfItems: 0,
-    priceTotal: 0,
-    discountTotal: 0
-  };
-
-  let orderDetails = useRef(order);
+  let orderDetails = useRef({});
 
   useEffect(
     () => {
