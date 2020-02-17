@@ -19,7 +19,7 @@ const Order = memo(() => {
     orderDetails.numberOfItems += product[1].amount;
     orderDetails.priceTotal += product[1].priceTotal;
     orderDetails.discountTotal += product[1].discount;
-  }
+  };
 
   return (
     <aside className='summary'>
