@@ -77,7 +77,7 @@ In this App all the state is controlled by *Redux*. I wanted it that way in orde
 
 The structure has *three big components*: Modals, Shop and Order.
 
-1️⃣ *Modals*
+1. *Modals*
 
 The Modals directory has an `index.js` and the modal of the details product view (`ModalProduct.js`). It is prepared to have more modals and render only one each time. In `App.js` the Modals component wraps the store (Shop and Order components). This way I can render the modal (if a property in Redux state has been triggered) or the store.
 
@@ -99,7 +99,7 @@ The modal in `ModalProduct.js` has the action to add one item to the cart. It is
 The styles for the modal are located in the common folder styles. I installed `sass` and created some variables for colors and breakpoints that can be reusable. I did not touch the main.css provided in the exercise, but could convert it to an scss and generate a component for the button and use the common variables.
 I made the scss for my modal `responsive` :)
 
-2️⃣ *Shop*
+2. *Shop*
 
 This component is the most complex. It has two big parts:
 
@@ -125,7 +125,7 @@ So we have an app that can grow very easy because both the products cart and the
 The reducers an actions for products (add, remove) and modal are located inside the `Product` component, in `modules`. That's because I thought the App can grow easily if each component contains its related parts.
 Consequently, in the `reducers` folder that is in the root of `src`, there is only one index.js that receives all the reducers of each component and combines them in a rootReducer.
 
-3️⃣ *Order*
+3. *Order*
 
 This component `iterates` over all products stored in the `Redux` state. It adds the values of the number of products, the total and the total with discounts.
 
