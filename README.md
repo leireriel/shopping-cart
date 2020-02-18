@@ -122,7 +122,7 @@ So we have an app that can grow very easy because both the products cart and the
 
 **Location of reducers**
 
-The reducers and actions for both products and modal are located inside the `Product` component, in `modules`. That's because I thought the App can grow easily if each component contains its related parts.
+The reducers and actions for both products and modal (add item, remove item, open modal) are located inside the `Product` component, in `modules`. That's because I thought the App can grow easily if each component contains its related parts.
 Consequently, in the `reducers` folder that is in the root of `src`, there is only one index.js that receives all the reducers of each component and combines them in a rootReducer.
 
 3. *Order*
